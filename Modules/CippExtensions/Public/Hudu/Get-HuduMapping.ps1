@@ -17,6 +17,7 @@ function Get-HuduMapping {
                 TenantDomain    = $Tenant.defaultDomainName
                 IntegrationId   = $Mapping.IntegrationId
                 IntegrationName = $Mapping.IntegrationName
+                SyncPasswords   = $Mapping.SyncPasswords -ne $false
             }
         }
     }
@@ -46,7 +47,7 @@ function Get-HuduMapping {
     }
     $MappingObj = [PSCustomObject]@{
         Companies = @($HuduCompanies)
-        Mappings  = $Mappings
+        Mappings  = @($Mappings)
     }
 
     return $MappingObj
